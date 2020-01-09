@@ -26,7 +26,7 @@ stage('Apply') {
             credentialsId: credentialsId,
             accessKeyVariable: 'AWS_ACCESS_KEY_ID',
             secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
-        ]]) {sh '/usr/local/bin/terraform apply'}
+        ]]) {sh '/usr/local/bin/terraform apply -auto-approve=true'}
     }
 }
 stage('Show') {
