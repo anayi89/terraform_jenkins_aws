@@ -1,6 +1,9 @@
 String credentialsId = 'awsCredentials'
-agent { label 'terraform' }
-environment { PATH = '/usr/local/bin/terraform' }
+stage('Set Path') {
+    node {
+        withEnv(['terraform=/usr/local/bin/terraform'])
+    }
+}
 stage('Initialize') {
     node {
         withCredentials([[
