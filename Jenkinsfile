@@ -1,8 +1,10 @@
 String credentialsId = 'awsCredentials'
 stage('Set Path') {
-    script {
-        def tfHome = tool name: 'Terraform'
-        env.PATH   = '${tfHome}:${env.PATH}'
+    node {
+        script {
+            def tfHome = tool name: 'Terraform'
+            env.PATH   = '${tfHome}:${env.PATH}'
+        }
     }
 }
 stage('Initialize') {
