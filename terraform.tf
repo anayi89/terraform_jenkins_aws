@@ -1,3 +1,6 @@
+provider "aws" {
+  region = "us-east-2"
+}
 variable "instance_type" {
   default     = "t2.large"
   description = "AWS instance type"
