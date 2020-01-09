@@ -7,13 +7,10 @@ stage('Set Path') {
             credentialsId: credentialsId,
             accessKeyVariable: 'AWS_ACCESS_KEY_ID',
             secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
-        ]]) {
-            sh 'terraform init',
-            sh 'terraform plan',
-            sh 'terraform apply',
-            sh 'terraform show',
-        }
-
+        ]]) {sh 'terraform init'}
+        {sh 'terraform plan'}
+        {sh 'terraform apply'}
+        {sh 'terraform show'}
     }
 }
 stage('Initialize') {
