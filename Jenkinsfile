@@ -29,3 +29,13 @@ stage('Apply') {
         ]]) {sh 'terraform apply'}
     }
 }
+stage('Show') {
+    node {
+        withCredentials([[
+            $class: 'AmazonWebServicesCredentialsBinding',
+            credentialsId: credentialsId,
+            accessKeyVariable: 'AWS_ACCESS_KEY_ID',
+            secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
+        ]]) {sh 'terraform show'}
+    }
+}
