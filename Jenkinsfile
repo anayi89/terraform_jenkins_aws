@@ -6,7 +6,7 @@ stage('Initialize') {
             credentialsId: credentialsId,
             accessKeyVariable: 'AWS_ACCESS_KEY_ID',
             secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
-        ]]) {sh 'cd /home/centos/devops_project1 | /usr/local/bin/terraform init'}
+        ]]) {sh '/usr/local/bin/terraform init'}
     }
 }
 stage('Plan') {
@@ -16,7 +16,7 @@ stage('Plan') {
             credentialsId: credentialsId,
             accessKeyVariable: 'AWS_ACCESS_KEY_ID',
             secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
-        ]]) {sh 'cd /home/centos/devops_project1 | /usr/local/bin/terraform plan'}
+        ]]) {sh '/usr/local/bin/terraform plan'}
     }
 }
 stage('Apply') {
@@ -26,7 +26,7 @@ stage('Apply') {
             credentialsId: credentialsId,
             accessKeyVariable: 'AWS_ACCESS_KEY_ID',
             secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
-        ]]) {sh 'cd /home/centos/devops_project1 | /usr/local/bin/terraform apply'}
+        ]]) {sh '/usr/local/bin/terraform apply'}
     }
 }
 stage('Show') {
@@ -36,6 +36,6 @@ stage('Show') {
             credentialsId: credentialsId,
             accessKeyVariable: 'AWS_ACCESS_KEY_ID',
             secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
-        ]]) {sh 'cd /home/centos/devops_project1 | /usr/local/bin/terraform show'}
+        ]]) {sh '/usr/local/bin/terraform show'}
     }
 }
