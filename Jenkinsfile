@@ -3,7 +3,7 @@ stage('Set Path') {
     node {
         script {
             def tfHome = tool name: 'Terraform'
-            env.PATH   = '${tfHome}:${env.PATH}'
+            env.PATH   = '${tfHome}:/usr/local/bin/terraform'
         }
     }
 }
