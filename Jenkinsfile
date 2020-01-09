@@ -1,7 +1,7 @@
 String credentialsId = 'awsCredentials'
 stage('Set Path') {
     node {
-        withEnv(['terraform=/usr/local/bin/terraform'])        
+        withEnv(['terraform=/usr/local/bin/terraform']){}
      }
 }
 stage('Initialize') {
