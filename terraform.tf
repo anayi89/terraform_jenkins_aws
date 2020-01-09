@@ -1,6 +1,11 @@
 provider "aws" {
   region = "us-east-2"
 }
+provider "aws" {
+  region "us-east-2"
+  alias = "us_east"
+}
+
 variable "instance_type" {
   default     = "t2.large"
   description = "AWS instance type"
