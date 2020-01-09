@@ -1,9 +1,4 @@
 String credentialsId = 'awsCredentials'
-stage('Set Path') {
-    node {
-        withEnv(['terraform=/usr/local/bin/terraform']){}
-     }
-}
 stage('Initialize') {
     node {
         withCredentials([[
@@ -11,7 +6,7 @@ stage('Initialize') {
             credentialsId: credentialsId,
             accessKeyVariable: 'AWS_ACCESS_KEY_ID',
             secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
-        ]]) {sh 'terraform init'}
+        ]]) {sh '/usr/local/bin/terraform init'}
     }
 }
 stage('Plan') {
@@ -21,7 +16,7 @@ stage('Plan') {
             credentialsId: credentialsId,
             accessKeyVariable: 'AWS_ACCESS_KEY_ID',
             secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
-        ]]) {sh 'terraform plan'}
+        ]]) {sh '/usr/local/bin/terraform plan'}
     }
 }
 stage('Apply') {
@@ -31,7 +26,7 @@ stage('Apply') {
             credentialsId: credentialsId,
             accessKeyVariable: 'AWS_ACCESS_KEY_ID',
             secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
-        ]]) {sh 'terraform apply'}
+        ]]) {sh '/usr/local/bin/terraform apply'}
     }
 }
 stage('Show') {
@@ -41,6 +36,6 @@ stage('Show') {
             credentialsId: credentialsId,
             accessKeyVariable: 'AWS_ACCESS_KEY_ID',
             secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
-        ]]) {sh 'terraform show'}
+        ]]) {sh '/usr/local/bin/terraform show'}
     }
 }
