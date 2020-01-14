@@ -39,3 +39,13 @@ stage('Show') {
         ]]) {sh '/usr/local/bin/terraform show'}
     }
 }
+stage('Destroy') {
+    node {
+        withCredentials([[
+            $class: 'AmazonWebServicesCredentialsBinding',
+            credentialsId: credentialsId,
+            accessKeyVariable: 'AWS_ACCESS_KEY_ID',
+            secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
+        ]]) {sh '/usr/local/bin/terraform destroy'}
+    }
+}
