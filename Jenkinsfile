@@ -6,7 +6,7 @@ stage('Initialize') {
             credentialsId: credentialsId,
             accessKeyVariable: 'AWS_ACCESS_KEY_ID',
             secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
-        ]]) {sh '/usr/local/bin/terraform init'}
+        ]]) {sh 'terraform init'}
     }
 }
 stage('Plan') {
@@ -16,7 +16,7 @@ stage('Plan') {
             credentialsId: credentialsId,
             accessKeyVariable: 'AWS_ACCESS_KEY_ID',
             secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
-        ]]) {sh '/usr/local/bin/terraform plan'}
+        ]]) {sh 'terraform plan'}
     }
 }
 stage('Apply') {
@@ -26,7 +26,7 @@ stage('Apply') {
             credentialsId: credentialsId,
             accessKeyVariable: 'AWS_ACCESS_KEY_ID',
             secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
-        ]]) {sh '/usr/local/bin/terraform apply -auto-approve=true'}
+        ]]) {sh 'terraform apply -auto-approve=true'}
     }
 }
 stage('Show') {
@@ -36,7 +36,7 @@ stage('Show') {
             credentialsId: credentialsId,
             accessKeyVariable: 'AWS_ACCESS_KEY_ID',
             secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
-        ]]) {sh '/usr/local/bin/terraform show'}
+        ]]) {sh 'terraform show'}
     }
 }
 stage('Destroy') {
@@ -46,6 +46,6 @@ stage('Destroy') {
             credentialsId: credentialsId,
             accessKeyVariable: 'AWS_ACCESS_KEY_ID',
             secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
-        ]]) {sh '/usr/local/bin/terraform destroy -lock=false'}
+        ]]) {sh 'terraform destroy -auto-approve=true -lock=false'}
     }
 }
